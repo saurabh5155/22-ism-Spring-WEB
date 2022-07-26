@@ -1,6 +1,9 @@
 package com.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,13 +18,21 @@ public class SessionController {
 	}
 	
 	@RequestMapping(value = "saveUser",method = RequestMethod.POST)
-	public String saveUser(UserBean userBean) {
-		System.out.println("SessionController -> saveUser()");
-		System.out.println("FirstName :"+userBean.getFirstName());
-		System.out.println("LastName :"+userBean.getLastName());
-		System.out.println("email :"+userBean.getEmail());
-		System.out.println("password :"+userBean.getPassword());
+	public String saveUser(@Valid UserBean userBean,BindingResult result) {
 		
-		return "Login";
+		System.out.println("SessionController -> saveUser()");
+//		System.out.println("Result ->"+result);
+		
+		if(result.hasErrors()) {
+			return "Signup";
+		}else {
+			System.out.println("FirstName :"+userBean.getFirstName());
+			System.out.println("LastName :"+userBean.getLastName());
+			System.out.println("email :"+userBean.getEmail());
+			System.out.println("password :"+userBean.getPassword());
+			
+			return "Login";			
+		}
+		
 	}
 }

@@ -1,10 +1,22 @@
 package com.bean;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class UserBean {
+	
+	@NotBlank
 	private String firstName;
+	
+	@NotBlank
 	private String lastName;
+	
+	@NotBlank
 	private String email;
+	
+	@NotBlank
 	private String password;
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
