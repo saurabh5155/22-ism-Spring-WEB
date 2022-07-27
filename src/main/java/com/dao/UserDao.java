@@ -27,8 +27,14 @@ public class UserDao {
 
 		return users;
 	}
-	
+
 	public void deleteUser(int userId) {
-		stmt.update("delete from users where userid =?",userId);
+		stmt.update("delete from users where userid =?", userId);
+	}
+
+	public UserBean viewUser(int userId) {
+		UserBean userBean = stmt.queryForObject("select * from users where userid =?",
+				new BeanPropertyRowMapper<UserBean>(UserBean.class), new Object[] { userId });
+		return userBean;
 	}
 }

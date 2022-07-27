@@ -13,25 +13,32 @@ import com.dao.UserDao;
 
 @Controller
 public class ListUserController {
-	
+
 	@Autowired
 	UserDao userDao;
-	
+
 	@GetMapping("/listUser")
 	public String listUser(Model model) {
 		List<UserBean> users = userDao.listUser();
-		model.addAttribute("users",users);
+		model.addAttribute("users", users);
 		return "ListUsers";
 	}
-	
+
 	@GetMapping("/deleteUser")
 	public String deleteUser(@RequestParam("userId") int userId) {
 		userDao.deleteUser(userId);
-		
+
 //		List<UserBean> users = userDao.listUser();
 //		model.addAttribute("users",users);
 //		return "ListUsers";
-		
+
 		return "redirect:listUser";
+	}
+
+	@GetMapping("/viewUser")
+	public String viewUser(@RequestParam("userId") int userId,Model model) {
+		UserBean userBean = userDao.viewUser(userId);
+		model.addAttribute("userBean",userBean);
+		return "ViewUser";
 	}
 }
