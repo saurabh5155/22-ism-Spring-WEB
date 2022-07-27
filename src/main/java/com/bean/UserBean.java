@@ -4,16 +4,16 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class UserBean {
 	
-	@NotBlank
+	@NotBlank(message = "Please Enter FirstName")
 	private String firstName;
 	
-	@NotBlank
+	@NotBlank(message = "Please Enter LastName")
 	private String lastName;
 	
-	@NotBlank
+	@NotBlank(message = "Please Enter Email")
 	private String email;
 	
-	@NotBlank
+	@NotBlank(message = "Please Enter Password")
 	private String password;
 	
 	
