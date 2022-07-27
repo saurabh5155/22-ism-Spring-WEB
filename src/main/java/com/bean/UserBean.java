@@ -16,7 +16,24 @@ public class UserBean {
 	@NotBlank(message = "Please Enter Password")
 	private String password;
 	
+	@NotBlank(message = "Please Enter Gender")
+	private String gender;
 	
+	
+	private String userType;
+	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

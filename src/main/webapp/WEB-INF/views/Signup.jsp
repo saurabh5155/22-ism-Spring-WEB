@@ -27,6 +27,12 @@
 		<s:errors path="lastName"></s:errors>
 		<br>
 		<br>
+		
+		Gender:<s:radiobutton path="gender" value="male" />
+		Gender:<s:radiobutton path="gender" value="female" />
+		<s:errors path="gender"></s:errors>
+		<br>
+		<br>
 		Email:<s:input path="email" />
 		<s:errors path="email"></s:errors>
 		<br>
@@ -35,6 +41,8 @@
 		<s:errors path="password"></s:errors>
 		<br>
 		<br>
+		<s:errors path="userType"></s:errors>
+		
 		<input type="submit" value="sublit"><br><br>
 	</s:form>
 </body>

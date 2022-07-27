@@ -6,6 +6,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>22-ism-Spring-WEB Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<spring.version>5.3.22</spring.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -19,7 +23,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>5.3.22</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<!-- hibernate validator maven -->
@@ -31,6 +35,19 @@
 		</dependency>
 
 
+		<!-- Spring Freamwork-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- PG Admin Driver-->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.4.0</version>
+		</dependency>
 		<!-- My dependency end-->
 	</dependencies>
 	<build>

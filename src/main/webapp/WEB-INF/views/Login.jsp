@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,5 +13,6 @@
 	password:<input type="text" name="password"> <br><br>
 	<input type="submit" value="submit"><br><br>
 </form>
+${msg }
 </body>
 </html>

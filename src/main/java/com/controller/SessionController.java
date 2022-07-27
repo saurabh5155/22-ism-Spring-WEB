@@ -3,6 +3,7 @@ package com.controller;
 import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 
 import com.bean.UserBean;
+import com.dao.UserDao;
 
 @Controller
 public class SessionController {
+	
+	
+	@Autowired
+	UserDao userDao;
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String signup(UserBean userBean,Model model) {
@@ -41,7 +47,12 @@ public class SessionController {
 			System.out.println("LastName :" + userBean.getLastName());
 			System.out.println("email :" + userBean.getEmail());
 			System.out.println("password :" + userBean.getPassword());
-
+			System.out.println("Gender :" +userBean.getGender());
+			
+			userBean.setUserType("customer");
+			userDao.addUser(userBean);
+			model.addAttribute("msg","Signup Done.........");
+			
 			return "Login";
 		}
 
