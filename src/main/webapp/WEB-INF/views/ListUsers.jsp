@@ -24,6 +24,7 @@
       <th scope="col">Email</th>
       <th scope="col">Password</th>
       <th scope="col">User Type</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -36,6 +37,7 @@
       <td>${u.email }</td>
       <td>${u.password}</td>
       <td>${u.userType}</td>
+      <td> <a href="deleteUser?userId=${u.userId}"> delete</a> </td>
     </tr>
    </c:forEach>
   </tbody>

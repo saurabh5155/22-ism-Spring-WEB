@@ -27,4 +27,8 @@ public class UserDao {
 
 		return users;
 	}
+	
+	public void deleteUser(int userId) {
+		stmt.update("delete from users where userid =?",userId);
+	}
 }
