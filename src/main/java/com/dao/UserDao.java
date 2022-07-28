@@ -33,8 +33,17 @@ public class UserDao {
 	}
 
 	public UserBean viewUser(int userId) {
+		System.out.println(userId);
 		UserBean userBean = stmt.queryForObject("select * from users where userid =?",
 				new BeanPropertyRowMapper<UserBean>(UserBean.class), new Object[] { userId });
+
 		return userBean;
 	}
+
+	public void updateUser(UserBean userBean) {
+		stmt.update("update users set firstname =?,lastname=?,gender=?,email=?,password=? where userid=?",
+				userBean.getFirstName(), userBean.getLastName(), userBean.getGender(), userBean.getEmail(),
+				userBean.getPassword(), userBean.getUserId());
+	}
+
 }

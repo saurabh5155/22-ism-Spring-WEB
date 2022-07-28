@@ -40,7 +40,10 @@
 					<td>${u.password}</td>
 					<td>${u.userType}</td>
 					<td><a href="deleteUser?userId=${u.userId}"> delete</a> <a
-						href="viewUser?userId=${u.userId}"> View</a></td>
+						href="viewUser?userId=${u.userId}"> View</a>
+						<a
+						href="editUser?userId=${u.userId}"> Update</a>
+						</td>
 				</tr>
 			</c:forEach>
 		</tbody>

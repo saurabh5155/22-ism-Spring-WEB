@@ -2,17 +2,20 @@ package com.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.UserBean;
 import com.dao.UserDao;
 
 @Controller
-public class ListUserController {
+public class UserController {
 
 	@Autowired
 	UserDao userDao;
@@ -36,9 +39,24 @@ public class ListUserController {
 	}
 
 	@GetMapping("/viewUser")
-	public String viewUser(@RequestParam("userId") int userId,Model model) {
+	public String viewUser(@RequestParam("userId") int userId, Model model) {
 		UserBean userBean = userDao.viewUser(userId);
-		model.addAttribute("userBean",userBean);
+		model.addAttribute("userBean", userBean);
 		return "ViewUser";
+	}
+
+	@GetMapping("/editUser")
+	public String editUser(@RequestParam("userId") int userId, Model model) {
+
+		UserBean userBean = userDao.viewUser(userId);
+		model.addAttribute("userBean", userBean);
+		return "EditUser";
+
+	}
+	
+	@PostMapping("/updateUser")
+	public String updateUser(@Valid UserBean userBean) {
+		userDao.updateUser(userBean);
+		return "redirect:listUser";
 	}
 }
