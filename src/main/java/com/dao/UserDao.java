@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bean.LoginBean;
 import com.bean.UserBean;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -44,6 +45,22 @@ public class UserDao {
 		stmt.update("update users set firstname =?,lastname=?,gender=?,email=?,password=? where userid=?",
 				userBean.getFirstName(), userBean.getLastName(), userBean.getGender(), userBean.getEmail(),
 				userBean.getPassword(), userBean.getUserId());
+	}
+
+	public UserBean authenticate(LoginBean loginBean) {
+		UserBean userBean = null;
+		System.out.println(loginBean.getEmail());
+		System.out.println(loginBean.getPassword());
+		try {
+			userBean = stmt.queryForObject("select * from users where email = ? and password = ? ",
+					new BeanPropertyRowMapper<UserBean>(UserBean.class),
+					new Object[] { loginBean.getEmail(), loginBean.getPassword() });
+		} catch (Exception e) {
+			System.out.println("Exception in UserDao -> login");
+			e.printStackTrace();
+		}
+		System.out.println(userBean);
+		return userBean;
 	}
 
 }

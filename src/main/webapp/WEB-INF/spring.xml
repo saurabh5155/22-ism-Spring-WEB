@@ -37,4 +37,8 @@
 			<constructor-arg ref="dataSource"></constructor-arg> 
 	</bean>
 
+	<!-- <bean class="org.springframework.web.multipart.commons" id="multiPathResolver">
+		<property name=""></property>
+	</bean> -->
+
 </beans>

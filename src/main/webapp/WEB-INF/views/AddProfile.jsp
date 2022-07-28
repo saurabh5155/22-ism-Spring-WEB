@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Home</h2>
-<a href="addProfile">AddProfile</a>
+ProFile
+<form action="saveProfile" enctype="multipath/form-data">
+	<input type="file" name="addProfile">
+	<input type="submit" value="submit">
+</form>
 </body>
 </html>

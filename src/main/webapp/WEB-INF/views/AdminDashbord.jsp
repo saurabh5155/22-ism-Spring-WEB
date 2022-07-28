@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Home</h2>
-<a href="addProfile">AddProfile</a>
+<h2>Admin</h2>
 </body>
 </html>

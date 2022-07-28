@@ -59,4 +59,15 @@ public class UserController {
 		userDao.updateUser(userBean);
 		return "redirect:listUser";
 	}
+	
+	@GetMapping("/addProfile")
+	public String addProfile() {
+		return "AddProfile";
+	}
+	
+	@PostMapping("/saveProfile")
+	public String saveProfile() {
+		
+		return "Home";
+	}
 }

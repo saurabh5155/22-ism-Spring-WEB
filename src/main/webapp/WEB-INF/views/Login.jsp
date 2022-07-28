@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>Login</h2>
-<form action="loginUser" method="post">
+<form action="login" method="post">
 	email:<input type="text" name="email"> <br><br>
 	password:<input type="text" name="password"> <br><br>
 	<input type="submit" value="submit"><br><br>
