@@ -9,5 +9,6 @@
 <body>
 <h2>Home</h2>
 <a href="addProfile">AddProfile</a>
+<a href="listProfile">ListProfile</a>
 </body>
 </html>

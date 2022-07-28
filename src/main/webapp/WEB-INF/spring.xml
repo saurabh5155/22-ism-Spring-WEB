@@ -37,8 +37,12 @@
 			<constructor-arg ref="dataSource"></constructor-arg> 
 	</bean>
 
+	<!-- Commons multipart resolver -->
 	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
 		<property name="maxUploadSize" value="10000000000"> </property>
 	</bean>
-
+	
+	<!-- Set Resources -->
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+	
 </beans>
