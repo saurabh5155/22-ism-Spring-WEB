@@ -17,6 +17,7 @@ import com.bean.ProfileBean;
 import com.bean.UserBean;
 import com.dao.ProfileDao;
 import com.dao.UserDao;
+import com.service.FileUploadService;
 
 @Controller
 public class ProfileController {
@@ -27,6 +28,8 @@ public class ProfileController {
 	@Autowired
 	ProfileDao profileDao;
 	
+	@Autowired
+	FileUploadService fileUploadService;
 	
 	@GetMapping("/addProfile")
 	public String addProfile() {
@@ -41,20 +44,10 @@ public class ProfileController {
 		UserBean userBean = (UserBean) session.getAttribute("userBean");
 		int userId = userBean.getUserId();
 
-		String mainPath = "F:\\JAVA ISM\\Spring\\22-ism-Spring-WEB\\src\\main\\webapp\\resources\\img";
 		
-		File folder = new File(mainPath,userId+"");
-		folder.mkdir();
-		
-		File file1 = new File(folder, file.getOriginalFilename());
-	
 		try {
-			byte b[] = file.getBytes();
-
-			FileOutputStream fos = new FileOutputStream(file1);
-			fos.write(b);
-			fos.close();
 			
+			fileUploadService.imgUpload(file, userId);
 			ProfileBean profileBean = new ProfileBean();
 			profileBean.setUserId(userId);
 			profileBean.setImgUrl("resources/img/"+userId+"/"+file.getOriginalFilename());
@@ -62,7 +55,7 @@ public class ProfileController {
 			
 			profileDao.addProfileImg(profileBean);
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			System.out.println("UserController -> saveProfile()");
 			e.printStackTrace();
 		}
