@@ -8,8 +8,8 @@
 </head>
 <body>
 ProFile
-<form action="saveProfile" enctype="multipath/form-data">
-	<input type="file" name="addProfile">
+<form action="saveProfile" enctype="multipart/form-data" method="post">
+	<input type="file" name="profile">
 	<input type="submit" value="submit">
 </form>
 </body>

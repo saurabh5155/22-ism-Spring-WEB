@@ -37,8 +37,8 @@
 			<constructor-arg ref="dataSource"></constructor-arg> 
 	</bean>
 
-	<!-- <bean class="org.springframework.web.multipart.commons" id="multiPathResolver">
-		<property name=""></property>
-	</bean> -->
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+		<property name="maxUploadSize" value="10000000000"> </property>
+	</bean>
 
 </beans>

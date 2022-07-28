@@ -53,21 +53,12 @@ public class UserController {
 		return "EditUser";
 
 	}
-	
+
 	@PostMapping("/updateUser")
 	public String updateUser(@Valid UserBean userBean) {
 		userDao.updateUser(userBean);
 		return "redirect:listUser";
 	}
+
 	
-	@GetMapping("/addProfile")
-	public String addProfile() {
-		return "AddProfile";
-	}
-	
-	@PostMapping("/saveProfile")
-	public String saveProfile() {
-		
-		return "Home";
-	}
 }
