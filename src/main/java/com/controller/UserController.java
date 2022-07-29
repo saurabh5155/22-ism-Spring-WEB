@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bean.SecQueBean;
 import com.bean.UserBean;
+import com.dao.SeqQueDao;
 import com.dao.UserDao;
 
 @Controller
@@ -20,6 +22,9 @@ public class UserController {
 	@Autowired
 	UserDao userDao;
 
+	@Autowired
+	SeqQueDao seqQueDao;
+	
 	@GetMapping("/listUser")
 	public String listUser(Model model) {
 		List<UserBean> users = userDao.listUser();
@@ -60,5 +65,15 @@ public class UserController {
 		return "redirect:listUser";
 	}
 
+	@GetMapping("/secQue")
+	public String secQue() {
+		return "SelectSecQue";
+	}
+	
+	@PostMapping("/secQue")
+	public String secQue1(SecQueBean secQueBean ) {
+		seqQueDao.addSecQue(secQueBean);
+		return "SelectSecQue";
+	}
 	
 }
