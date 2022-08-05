@@ -10,5 +10,6 @@
 <h2>Home</h2>
 <a href="addProfile">AddProfile</a>
 <a href="listProfile">ListProfile</a>
+<a href="secQue">secQue</a>
 </body>
 </html>

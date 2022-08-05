@@ -2,7 +2,7 @@ package com.bean;
 
 public class SecQueBean {
 	String que;
-	int seqQue;
+	int seqQueId;
 	String ans;
 	int userId;
 	public String getQue() {
@@ -11,11 +11,12 @@ public class SecQueBean {
 	public void setQue(String que) {
 		this.que = que;
 	}
-	public int getSeqQue() {
-		return seqQue;
+
+	public int getSeqQueId() {
+		return seqQueId;
 	}
-	public void setSeqQue(int seqQue) {
-		this.seqQue = seqQue;
+	public void setSeqQueId(int seqQueId) {
+		this.seqQueId = seqQueId;
 	}
 	public String getAns() {
 		return ans;

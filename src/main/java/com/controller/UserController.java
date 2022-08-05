@@ -2,6 +2,7 @@ package com.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class UserController {
 
 	@Autowired
 	SeqQueDao seqQueDao;
-	
+
 	@GetMapping("/listUser")
 	public String listUser(Model model) {
 		List<UserBean> users = userDao.listUser();
@@ -66,14 +67,19 @@ public class UserController {
 	}
 
 	@GetMapping("/secQue")
-	public String secQue() {
+	public String secQue(Model model,HttpSession session) {
+		UserBean userBean =(UserBean) session.getAttribute("userBean");
+		List<SecQueBean> secQueBean=	seqQueDao.getQueById(userBean.getUserId());
+		model.addAttribute("secQueBean",secQueBean);
 		return "SelectSecQue";
 	}
-	
+
 	@PostMapping("/secQue")
-	public String secQue1(SecQueBean secQueBean ) {
+	public String secQue1(SecQueBean secQueBean, HttpSession session) {
+		UserBean userBean = (UserBean) session.getAttribute("userBean");
+		secQueBean.setUserId(userBean.getUserId());
 		seqQueDao.addSecQue(secQueBean);
-		return "SelectSecQue";
+		return "redirect:/secQue";
 	}
-	
+
 }
