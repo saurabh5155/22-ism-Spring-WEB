@@ -1,5 +1,7 @@
 package com.bean;
 
+import javax.validation.constraints.Pattern;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 public class UserBean {
@@ -13,6 +15,7 @@ public class UserBean {
 	@NotBlank(message = "Please Enter Email")
 	private String email;
 	
+	@Pattern(regexp = "^[a-zA-Z0-9]{3}",message = "length must be 3")
 	@NotBlank(message = "Please Enter Password")
 	private String password;
 	
