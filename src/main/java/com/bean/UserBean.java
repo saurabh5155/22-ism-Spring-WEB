@@ -1,5 +1,7 @@
 package com.bean;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -19,6 +21,8 @@ public class UserBean {
 	@NotBlank(message = "Please Enter Password")
 	private String password;
 	
+//    @Min(value=18, message="must be equal or greater than 18")  
+//    @Max(value=45, message="must be equal or less than 45") 
 	@NotBlank(message = "Please Enter Gender")
 	private String gender;
 	
